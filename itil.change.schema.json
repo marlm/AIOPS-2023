@@ -1,0 +1,273 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://kyndryl.net/schemas/itil.change.schema.json",
+    "title": "itil-change-schema",
+    "description": "The ITIL Change ticket message schema containing the minimum data set (MDS) representative of the source ticket. ITIL defines a change as an addition, modification or removal of any authorized, planned, or supported service or service component that could have an effect on IT services.",
+    "type": "object",
+    "properties": {
+        "ticket_id": {
+            "description": "The unique identifier assigned to this ticket, the change number",
+            "type": "string"
+        },
+        "tool_type": {
+            "description": "The tool type that is sourcing this data, example ServiceNow, ICD, Remedy, Cherwell, other",
+            "type": "string",
+            "examples": [
+                "Remedy",
+                "ServiceNow",
+                "ICD",
+                "Cherwell",
+                "other"
+            ]
+        },
+        "short_description": {
+            "description": "The short description or abstract of the change",
+            "type": "string"
+        },
+        "long_description": {
+            "description": "The long description of the change",
+            "type": "string"
+        },
+        "approval": {
+            "description": "The change approval code",
+            "type": "string",
+            "examples": [
+                "approved",
+                "pending",
+                "rejected",
+                "other"
+            ]
+        },
+        "assignment_group": {
+            "description": "The group assigned to the ticket",
+            "type": "string"
+        },
+        "category": {
+            "description": "The category assigned to the change",
+            "type": "string",
+            "examples": [
+                "Enterprise Change",
+                "Decommission",
+                "Provision Identity",
+                "other"
+            ]
+        },
+        "change_type": {
+            "description": "The ITIL Change Type, Standard, Normal, Emergency",
+            "type": "string",
+            "examples": [
+                "Standard",
+                "Normal",
+                "Emergency"
+            ]
+        },
+        "backout_plan": {
+            "description": "The backout plan in case the change failed or backed out",
+            "type": "string"
+        },
+        "test_plan": {
+            "description": "The test plan to test the successful execution of the change",
+            "type": "string"
+        },
+        "justification": {
+            "description": "The justification to perform the change",
+            "type": "string"
+        },
+        "exception_reason": {
+            "description": "The exception associated with the risk to perform the change under given schedules",
+            "type": "string"
+        },
+        "configuration_item": {
+            "description": "The configuration item affected by the change",
+            "type": "string"
+        },
+        "location_street": {
+            "description": "The location street address of the change",
+            "type": "string"
+        },
+        "location_city": {
+            "description": "The location city of the change",
+            "type": "string"
+        },
+        "location": {
+            "description": "The location indicator of the change",
+            "type": "string"
+        },
+        "location_country": {
+            "description": "The location country of the change",
+            "type": "string"
+        },
+        "impact": {
+            "description": "The business impact of the change, with 1 being highest impact, numeric representation 1, 2, 3, 4, 5",
+            "type": "integer",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "urgency": {
+            "description": "The ticket urgency, the speed in which this change should be resolved, 1 being the most urgent - numeric representation 1, 2, 3, 4, 5",
+            "type": "integer",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "priority": {
+            "description": "The priority of the ticket, 1 being the highest priority - numeric representation 1, 2, 3, 4, 5",
+            "type": "integer",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "risk": {
+            "description": "The risk associated in the change, 1 being the highest risk - numeric representation 1, 2, 3, 4, 5",
+            "type": "integer",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "risk-impact-analysis": {
+            "description": "The risk impact analysis of the change",
+            "type": "string"
+        },
+        "probability_failure": {
+            "description": "The probability of failure of the change, 1 being most probable to fail",
+            "type": "integer",
+            "enum": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        "resolution_text": {
+            "description": "The descriptive closure information of the change",
+            "type": "string"
+        },
+        "completion_code": {
+            "description": "The completion code associated with the completed change",
+            "type": "string",
+            "examples": [
+                "Backed Out",
+                "Failed",
+                "Rejected",
+                "Successful",
+                "Withdrawn"
+            ]
+        },
+        "status": {
+            "description": "The ticket status",
+            "type": "string",
+            "examples": [
+                "plan",
+                "assess",
+                "approve",
+                "schedule",
+                "implement",
+                "review",
+                "complete",
+                "close"
+            ]
+        },
+        "modified_datetime": {
+            "description": "The datetime the ticket was last updated by the system, in UTC RFC3339 format",
+            "type": "string",
+            "format": "date-time",
+            "examples": [
+                "UTC date-time in RFC3339 format",
+                "2023-06-14T10:47:395Z"
+            ]
+        },
+        "opened_datetime": {
+            "description": "The datetime the ticket was first created, in UTC RFC3339 format",
+            "type": "string",
+            "format": "date-time",
+            "examples": [
+                "UTC date-time in RFC3339 format",
+                "2023-06-14T10:47:395Z"
+            ]
+        },
+        "actual_start_datetime": {
+            "description": "The datetime the work started, in UTC RFC3339 format",
+            "type": "string",
+            "format": "date-time",
+            "examples": [
+                "UTC date-time in RFC3339 format",
+                "2023-06-14T10:47:395Z"
+            ]
+        },
+        "actual_end_datetime": {
+            "description": "The datetime the work ended, in UTC RFC3339 format",
+            "type": "string",
+            "format": "date-time",
+            "examples": [
+                "UTC date-time in RFC3339 format",
+                "2023-06-14T10:47:395Z"
+            ]
+        },
+        "approval_datetime": {
+            "description": "The datetime the ticket was approved, in UTC RFC3339 format",
+            "type": "string",
+            "format": "date-time",
+            "examples": [
+                "UTC date-time in RFC3339 format",
+                "2023-06-14T10:47:395Z"
+            ]
+        },
+        "closed_datetime": {
+            "description": "The datetime the ticket was closed, in UTC RFC3339 format",
+            "type": "string",
+            "format": "date-time",
+            "examples": [
+                "UTC date-time in RFC3339 format",
+                "2023-06-14T10:47:395Z"
+            ]
+        },
+        "planned_start_datetime": {
+            "description": "The datetime the change was planned to start, in UTC RFC3339 format",
+            "type": "string",
+            "format": "date-time",
+            "examples": [
+                "UTC date-time in RFC3339 format",
+                "2023-06-14T10:47:395Z"
+            ]
+        },
+        "planned_finish_datetime": {
+            "description": "The datetime the change was planned to complete, in UTC RFC3339 format",
+            "type": "string",
+            "format": "date-time",
+            "examples": [
+                "UTC date-time in RFC3339 format",
+                "2023-06-14T10:47:395Z"
+            ]
+        }
+    },
+    "required": [
+        "ticket_id",
+        "tool_type",
+        "short_description",
+        "long_description",
+        "approval",
+        "change_type",
+        "status",
+        "assignment_group",
+        "opened_datetime",
+        "modified_datetime"
+    ]
+}
